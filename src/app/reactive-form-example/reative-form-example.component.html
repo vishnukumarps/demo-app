@@ -1,0 +1,30 @@
+
+<h2 style="text-align: center;">Reactive Form</h2>
+<div class="container" >
+    <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Name</label>
+            <input type="text" formControlName="name" class="form-control" placeholder="Enter Name">
+            <div *ngIf="studentForm.get('name')?.hasError('required') && (studentForm.get('name')?.touched)" class="text-danger">
+                Name is required.
+            </div>
+            
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Age</label>
+            <input type="number" formControlName="age" class="form-control" placeholder="Enter Name">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Dob</label>
+            <input type="date" formControlName="dob" class="form-control" placeholder="Enter Name">
+        </div>
+        <button type="submit" [disabled]="!studentForm.valid" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+<form [formGroup]="studentForm2" (ngSubmit)="onSubmit2()">
+    <input type="text" formControlName="n1">
+    <br>
+    <button type="submit">Click</button>
+</form>

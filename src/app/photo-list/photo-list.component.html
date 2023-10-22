@@ -1,0 +1,63 @@
+<div class="container">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Email</th>
+                <th scope="col">Dob</th>
+                <th scope="col">Avatar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of data2.data?.users" scope="row">
+                <th>{{item?.id}}</th>
+                <td>{{item?.first_name}}</td>
+                <td>{{item?.last_name}}</td>
+                <td>{{item?.email}}</td>
+                <td>{{item?.date_of_birth}}</td>
+                <td><img src="{{ item.profile_picture }}" class="img-thumbnail"
+                        style="max-width: 250px; max-height: 200px;"></td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Total Mark</th>
+            <th>Subjects</th>
+            <th>Highest Mark</th>
+            <th>Edit /Add/ Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of students.data">
+            <td>{{ student.id }}</td>
+            <td>{{ student.name }}</td>
+            <td>{{ student.totalMark }}</td>
+            <td>
+
+                <span *ngFor="let mark of student.markList; let last = last">
+                    {{ mark.name }}: {{ mark.markObtained }}/{{ mark.maxMark }}{{ last ? '' : ', ' }}
+                </span>
+            <td>{{ student.highest.name }} ({{ student.highest.markObtained }}/{{ student.highest.maxMark }})</td>
+            <td>
+                <!-- Edit button with Bootstrap class -->
+                <button class="btn btn-primary" (click)="editStudent(student)">Edit</button>
+                <!-- Add button with Bootstrap class -->
+                <button class="btn btn-success" (click)="addStudent()">Add</button>
+                <!-- Delete button with Bootstrap class -->
+                <button class="btn btn-danger" (click)="deleteStudent(student.id)">Delete</button>
+            </td>
+
+        </tr>
+    </tbody>
+</table>

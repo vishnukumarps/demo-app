@@ -1,0 +1,13 @@
+<p>edit-student works!</p>
+<h2 style=" text-align: center;">Edit Student</h2>
+<div class="container">
+    <div class="form-group">
+        <label for="name">Fist Name:</label>
+        <input type="text" class="form-control" id="name" name="firstName" [(ngModel)]="student.firstName">
+    </div>
+    <div class="form-group">
+        <label for="name">Last Name:</label>
+        <input type="text" id="name" name="lastName" class="form-control" [(ngModel)]=student.lastName>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="edit()">Submit</button>
+</div>
